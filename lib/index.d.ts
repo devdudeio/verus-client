@@ -16,6 +16,6 @@ interface VerusClientInstance {
 declare class VerusClient implements VerusClientInstance {
     _axiosInstance: AxiosInstance;
     constructor(rpcBaseUrl: string, rpcUsername: string, rpcPassword: string);
-    getBalance(account: any, minconf: any, includeWatchonly: any): Promise<any>;
+    getBalance(account?: string, minconf?: number, includeWatchonly?: boolean): Promise<any>;
 }
 export default VerusClient;

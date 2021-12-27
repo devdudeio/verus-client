@@ -29,11 +29,13 @@ class VerusClient implements VerusClientInstance {
             }
         })     
       }
-    async getBalance(account, minconf, includeWatchonly){
+    async getBalance(account?: string, minconf?: number, includeWatchonly?: boolean){
           try {
             return await this._axiosInstance.post('', {
                 method: 'getbalance',
-                params: [],
+                params: [
+                    //TODO: add optional params
+                ],
             })
             .then(response => parseFloat(response.data.result))
             .catch(err => {throw new Error(err)})
